@@ -98,7 +98,7 @@ const LoginComponent = ({navigation}) => {
       email: username.username,
       password: password.password,
     };
-    let response = await fetch('https://windsarv2.herokuapp.com/loginUser', {
+    let response = await fetch('http://localhost:3000/loginUser', {
       method: 'POST',
       headers: {
         Accept: 'application/json',

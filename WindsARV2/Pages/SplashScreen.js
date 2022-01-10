@@ -43,17 +43,14 @@ const SplashScreen = ({navigation}) => {
           navigation.navigate('UserHomePage', {locationPermission});
         }
       } else if (userType == 'bussiness') {
-        let response = await fetch(
-          'https://windsarv2.herokuapp.com/businessInfo',
-          {
-            method: 'POST',
-            headers: {
-              Accept: 'application/json',
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({user_id: user_id}),
+        let response = await fetch('http://localhost:3000/businessInfo', {
+          method: 'POST',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
           },
-        );
+          body: JSON.stringify({user_id: user_id}),
+        });
         let recievedReponse = await response.json();
         dispatch(
           updateBusinessData({
@@ -69,17 +66,14 @@ const SplashScreen = ({navigation}) => {
   };
   async function getBusinessVoucherData() {
     const user_id = await AsyncStorage.getItem('user_id');
-    let response = await fetch(
-      'https://windsarv2.herokuapp.com/getVoucherData',
-      {
-        method: 'POST',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({user_id: user_id}),
+    let response = await fetch('http://localhost:3000/getVoucherData', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
       },
-    );
+      body: JSON.stringify({user_id: user_id}),
+    });
     let recievedReponse = await response.json();
     let xyz = [];
     recievedReponse.forEach(element => {
@@ -104,22 +98,19 @@ const SplashScreen = ({navigation}) => {
     navigation.navigate('BussinessHomePage');
   }
   async function getMarkerInfo(lat, long) {
-    let response = await fetch(
-      'https://windsarv2.herokuapp.com/getMarkerInfo',
-      {
-        method: 'GET',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-        },
+    let response = await fetch('http://localhost:3000/getMarkerInfo', {
+      method: 'GET',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
       },
-    );
+    });
     let recievedReponse = await response.json();
     let tempMarker = [...recievedReponse];
 
     const user_id = await AsyncStorage.getItem('user_id');
     let response2 = await fetch(
-      'https://windsarv2.herokuapp.com/getCustoemerLocationHistory',
+      'http://localhost:3000/getCustoemerLocationHistory',
       {
         method: 'POST',
         headers: {

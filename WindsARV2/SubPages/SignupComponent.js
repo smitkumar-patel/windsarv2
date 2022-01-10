@@ -199,7 +199,7 @@ const SignupComponent = ({navigation}) => {
       dob: DOB,
     };
 
-    let response = await fetch('https://windsarv2.herokuapp.com/registerUser', {
+    let response = await fetch('http://localhost:3000/registerUser', {
       method: 'POST',
       headers: {
         Accept: 'application/json',

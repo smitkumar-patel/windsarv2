@@ -118,21 +118,18 @@ const ProfilePage = ({navigation}) => {
     setErrorMessage(temp);
     if (temp.isName && temp.isEmail) {
       const user_id = await AsyncStorage.getItem('user_id');
-      let response = await fetch(
-        'https://windsarv2.herokuapp.com/updateProfile',
-        {
-          method: 'POST',
-          headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            user_id: user_id,
-            name: name,
-            email: email,
-          }),
+      let response = await fetch('http://localhost:3000/updateProfile', {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
         },
-      );
+        body: JSON.stringify({
+          user_id: user_id,
+          name: name,
+          email: email,
+        }),
+      });
       let recievedReponse = await response.json();
       if (recievedReponse.success == 'True') {
         dispatch(

@@ -64,21 +64,18 @@ const UserHomePage = ({route, navigation}) => {
     if (markerInfo[markerKey].winCoins) {
       const user_id = await AsyncStorage.getItem('user_id');
 
-      let response = await fetch(
-        'https://windsarv2.herokuapp.com/locationVisited',
-        {
-          method: 'POST',
-          headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            user_id: user_id,
-            winCoins: markerInfo[markerKey].winCoins,
-            markerKey: markerInfo[markerKey].markerKey,
-          }),
+      let response = await fetch('http://localhost:3000/locationVisited', {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
         },
-      );
+        body: JSON.stringify({
+          user_id: user_id,
+          winCoins: markerInfo[markerKey].winCoins,
+          markerKey: markerInfo[markerKey].markerKey,
+        }),
+      });
       let recieveResponse = await response.json();
 
       if (recieveResponse.success == 'true') {

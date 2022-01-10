@@ -239,26 +239,23 @@ const BusinessSignupComponent = ({navigation}) => {
       password: password.password,
     };
     try {
-      let response = await fetch(
-        'https://windsarv2.herokuapp.com/registerBusiness',
-        {
-          method: 'POST',
-          headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            name: RegisterData.name,
-            address: RegisterData.address,
-            category: RegisterData.category,
-            latitude: RegisterData.latitude,
-            longitude: RegisterData.longitude,
-            email: RegisterData.email,
-            password: RegisterData.password,
-            type: 'bussiness',
-          }),
+      let response = await fetch('http://localhost:3000/registerBusiness', {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
         },
-      );
+        body: JSON.stringify({
+          name: RegisterData.name,
+          address: RegisterData.address,
+          category: RegisterData.category,
+          latitude: RegisterData.latitude,
+          longitude: RegisterData.longitude,
+          email: RegisterData.email,
+          password: RegisterData.password,
+          type: 'bussiness',
+        }),
+      });
       let recieveResponse = await response.json();
       if (recieveResponse.success == 'True') {
         alert('User is registered');

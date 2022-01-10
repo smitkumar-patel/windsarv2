@@ -28,7 +28,7 @@ const UserMenuContent = ({navigation}) => {
     getVouchersData();
   };
   const getUserData = async user_id => {
-    let response = await fetch('https://windsarv2.herokuapp.com/customerInfo', {
+    let response = await fetch('http://localhost:3000/customerInfo', {
       method: 'POST',
       headers: {
         Accept: 'application/json',
@@ -56,16 +56,13 @@ const UserMenuContent = ({navigation}) => {
     );
   };
   const getVouchersData = async () => {
-    let response = await fetch(
-      'https://windsarv2.herokuapp.com/getVoucherDataForUser',
-      {
-        method: 'GET',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-        },
+    let response = await fetch('http://localhost:3000/getVoucherDataForUser', {
+      method: 'GET',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
       },
-    );
+    });
     let recievedReponse = await response.json();
     let xyz = [];
     recievedReponse.forEach(element => {

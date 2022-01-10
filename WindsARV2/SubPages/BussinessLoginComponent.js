@@ -101,7 +101,7 @@ const BussinessLoginComponent = ({navigation}) => {
       password: password.password,
     };
     let response = await fetch(
-      'https://windsar.herokuapp.com/registerCustomer/loginBusiness/',
+      'http://localhost:3000/registerCustomer/loginBusiness/',
       {
         method: 'POST',
         headers: {

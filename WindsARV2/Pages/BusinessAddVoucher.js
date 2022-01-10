@@ -129,7 +129,7 @@ const BusinessAddVoucher = ({navigation}) => {
   }
   const setVoucherData = async () => {
     const user_id = await AsyncStorage.getItem('user_id');
-    let response = await fetch('https://windsarv2.herokuapp.com/addVoucher', {
+    let response = await fetch('http://localhost:3000/addVoucher', {
       method: 'POST',
       headers: {
         Accept: 'application/json',

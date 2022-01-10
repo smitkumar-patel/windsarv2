@@ -25,7 +25,7 @@ const UserVouchers = ({navigation}) => {
   async function redeemVoucher(winCoins) {
     const user_id = await AsyncStorage.getItem('user_id');
     let response = await fetch(
-      'https://windsar.herokuapp.com/registerCustomer/redeemVoucher/',
+      'http://localhost:3000/registerCustomer/redeemVoucher/',
       {
         method: 'POST',
         headers: {
