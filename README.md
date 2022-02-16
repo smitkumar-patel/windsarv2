@@ -1,4 +1,4 @@
-This is a modified version of my previous project that I had completed with my other project mates. A separate GitHub repository was created for this version and instead of making changes to existing is mainly because this version is using API written in Express.js which was not the case before. 
+This is a modified version of my previous project that I had completed earlier. A separate GitHub repository was created for this version and instead of making changes to existing is mainly because this version is using API written in Express.js which was not the case before. 
 
 Please refer to this GitHub repository "https://github.com/neelJadav27/WindsAR" to get information about the application.
 
